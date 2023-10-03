@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+
 use APP\Models\Post;
 
 use App\Http\Controllers\ProfileController;
@@ -47,6 +48,10 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 Route::get('/{id}/post_details',[HomeController::class, 'post_details'])->name('postdetail');
 Route::get('/my_post',[HomeController::class, 'my_post'])->name('mypost');
+//comment
+Route::get('/comment_index',[HomeController::class,'commentindex'])->name('comment_index');
+Route::get('/comment_create',[HomeController::class,'commentcreate'])->name('commentcreate');
+Route::post('/save-comment',[HomeController::class,'save_comment'])->name('save_comment');
 
 //frontend
 Route::get('/about', function () {

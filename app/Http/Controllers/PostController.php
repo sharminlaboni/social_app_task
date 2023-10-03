@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Comment;
+
 
 use Illuminate\Http\Request;
 
 
 class PostController extends Controller
-{   public function postindex(){
+{   
+    public function postindex(){
     $post = Post::latest()->paginate(5);
     $user = User::all();
 
@@ -30,24 +33,7 @@ class PostController extends Controller
             //'image' => $request->file('image'),
 
         ];
-        // $image_path = $request->file('image')->store('image', 'public');
-
-        // $data = Image::create([
-        //     'image' => $image_path,
-        // ]);
-
-        // session()->flash('success', 'Image Upload successfully');
-        // $name = $request->file('image')->getClientOriginalName();
- 
-        // $path = $request->file('image')->store('public/images');
- 
- 
-        // $save = new Post;
- 
-        // $save->name = $name;
-        // $save->path = $path;
- 
-        // $save->save();       
+            
 
 
         Post::create($requestdata);
@@ -112,6 +98,21 @@ class PostController extends Controller
         $image->move(storage_path('/app/public/post'), $fileName);
         return $fileName;
     }
+    
+    
+    
+    
+    // Public function save_comment(Request $request,$id){
+    //     $request->validate([
+    //         'comment'=>'required'
+    //     ]);
+    //     $data=new Comment;
+    //     $data->user_id=$request->user()->id;
+    //     $data->post_id=$id;
+    //     $data->comment=$request->comment;
+    //     $data->save();
+    //     return redirect('home.post_details')->with('success','Comment has been submitted.');
+    // }
 }
 
 
