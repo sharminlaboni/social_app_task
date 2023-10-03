@@ -36,6 +36,7 @@
 </div>
                         
                   </div>
+
                  
                  
                
@@ -47,7 +48,22 @@
       <!-- blog section end -->
       <!-- client section start -->
       
-      <!-- client section start -->
+      
+				<!-- Add Comment -->
+				<div class="card my-5">
+					<h5 class="card-header">Add Comment</h5>
+					<div class="card-body">
+						<form method="post" action="{{route('save_comment')}}">
+						@csrf
+						<textarea name="comment" class="form-control"></textarea>
+						<input type="submit" class="btn btn-sucess mt-2" /> 
+                        </from>
+
+					</div>
+				</div>
+				
+                <!-- Fetch Comments -->
+			</div>
       <!-- choose section start -->
       
       <!-- choose section end -->
